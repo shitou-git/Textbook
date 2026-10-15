@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "tag": "v1.2.0-assets",
+  "created_at": "2026-09-28T19:43:09.138483+00:00",
+  "source_base_commit": "277316e75cc65fa616478dbe18a01c4935563dae",
+  "source_includes_local_changes": true,
+  "assets": [
+    {
+      "name": "data.zip",
+      "bytes": 4855420,
+      "sha256": "91f21806d43e95a229785b7f84d69b05cbed63fbeaff361f6e72d0c0823754bd",
+      "files": 2251,
+      "uncompressed_bytes": 12705822,
+      "extract_to": "apps/web/public/data"
+    },
+    {
+      "name": "story-images.zip",
+      "bytes": 550723240,
+      "sha256": "0398625e2a29b3c56cc581a8cc6570a7bec5600bddf754d6330e102d1b948a2f",
+      "files": 472,
+      "uncompressed_bytes": 550653802,
+      "extract_to": "apps/web/public/story-images"
+    },
+    {
+      "name": "textbook-pages.zip",
+      "bytes": 211560213,
+      "sha256": "628c8f24e8e961a708fa200e5796ec585d4abd9aaf521112951b0321d6e70474",
+      "files": 1582,
+      "uncompressed_bytes": 211373071,
+      "extract_to": "apps/web/public/textbook-pages"
+    },
+    {
+      "name": "data-source.zip",
+      "bytes": 833204,
+      "sha256": "a63c9fa4cf81cdd957c9a2607c9c1c5acc9895aeb45a9a2e6a96bc61d4f95c67",
+      "files": 40,
+      "uncompressed_bytes": 2713894,
+      "extract_to": "data"
+    },
+    {
+      "name": "audio.tar.gz",
+      "bytes": 1290669566,
+      "sha256": "5f3ec18f9f63aea90215d9059bc1ef23a45478c995e1555eeb898c6f3b757269",
+      "files": 81017,
+      "uncompressed_bytes": 1294242784,
+      "extract_to": "apps/web/public"
+    },
+    {
+      "name": "web-source.zip",
+      "bytes": 2098495,
+      "sha256": "d937fecad9db1fa62a12b2686da0a609d44cb870d889667f0e61b15e6f28395e",
+      "files": 459,
+      "uncompressed_bytes": 8403658,
+      "extract_to": "NEW_DIRECTORY_ONLY"
+    }
+  ],
+  "content": {
+    "books": 44,
+    "lessons": 2166,
+    "unit_questions": 6545,
+    "passages": 779,
+    "stories": 284,
+    "revised_chinese_stories": 188,
+    "revised_chinese_questions": 936,
+    "new_story_images": 188
+  }
+}

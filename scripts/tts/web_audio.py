@@ -308,10 +308,23 @@ def run(args: argparse.Namespace) -> int:
         for key, item in items.items():
             old = cached.get(key)
             target = Path(item["target"])
+            target_ok = audio_format(target) == "mp3"
             if (isinstance(old, dict) and old.get("source_sha256") == item["source_sha256"]
-                    and old.get("config_sha256") == CONFIG_SHA256 and audio_format(target) == "mp3"
+                    and old.get("config_sha256") == CONFIG_SHA256 and target_ok
                     and old.get("target_sha256") == digest(target)):
                 entries[key] = {**old, "action": "cached", "elapsed_seconds": 0}
+            elif target_ok:
+                # Existing valid MP3 without a manifest entry (e.g. produced by an
+                # external bulk converter). Reuse it; hashes are recorded so a later
+                # source change still forces a rebuild.
+                target_hash = digest(target)
+                source = Path(item["source"])
+                entries[key] = {"source_url": item["source_url"], "target_url": item["target_url"],
+                                "source_sha256": item["source_sha256"], "target_sha256": target_hash,
+                                "config_sha256": CONFIG_SHA256, "input_format": item["input_format"],
+                                "source_bytes": source.stat().st_size,
+                                "target_bytes": target.stat().st_size,
+                                "action": "reused_existing", "elapsed_seconds": 0}
             else:
                 pending.append(item)
             if time.monotonic() - last_progress >= 5:
